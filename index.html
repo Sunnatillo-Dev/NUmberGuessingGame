@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+            integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+        <title>Raqam Taxmin Qilish Oyini</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <header>
+            <div class="container header">
+                <div class="balance" id="balance">
+                    Balance: $
+                    <div id="summa">0</div>
+                </div>
+                <i class="fa-solid fa-bars burger" style="color: #727f97"></i>
+                <div class="features">
+                    <a href="#" class="full-balance">Balansi toldirish</a>
+                    <a href="#">Oyinga restart berish</a>
+                    <a href="#">Shotni Korish</a>
+                </div>
+            </div>
+        </header>
+        <div class="burger-overlay" id="burgerOverlay">
+            <div class="burger-menu">
+                <div class="button-mode">
+                    <label class="toggle">
+                        <input type="checkbox" checked id="switch" />
+                        <span class="slider round"></span>
+                    </label>
+                    <h2 class="darkmode">Dark</h2>
+                </div>
+                <div>
+                    <a class="full-balance" href="#">Balansi toldirish</a>
+                    <a href="#">Oyinga restart berish</a>
+                    <a href="#">Shotni Korish</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="container content-box">
+            <h1>Raqam Taxmin Qilish Oyini</h1>
+            <p>0 dan 9 gacha bolgan raqam kiriting:</p>
+            <input type="number" value="0" min="0" max="9" id="guessInput" />
+            <button id="guessButton">Solishtirish</button>
+            <div class="result" id="result">
+                Oyinni boshlash uchun tugmani bosing
+            </div>
+        </div>
+        <div class="modal" id="myModal">
+            <div class="modal-content">
+                <span class="close" id="closeModal">&times;</span>
+                <h2>Balansni To'ldirish</h2>
+                <input
+                    type="number"
+                    id="moneyInput"
+                    placeholder="Enter amount"
+                />
+                <button id="addMoneyButton">To'ldirish</button>
+                <div class="card-slot">
+                    <h3>Karta Malumotlari</h3>
+                    <input
+                        type="text"
+                        id="cardNumber"
+                        placeholder="Karta Raqami"
+                    />
+                    <input
+                        type="text"
+                        id="cardHolder"
+                        placeholder="Karta Egasini Ismi"
+                    />
+                    <input
+                        type="text"
+                        id="expirationDate"
+                        placeholder="Karta Muddati"
+                    />
+                    <input type="text" id="cvv" placeholder="CVV" />
+                </div>
+            </div>
+        </div>
+        <label class="toggle toggle2">
+            <input type="checkbox" checked id="switch2" />
+            <span class="slider slider2 round"></span>
+        </label>
+        <h2 class="darkmode darkmode2">Dark</h2>
+
+    </body>
+    <script src="script.js"></script>
+</html>

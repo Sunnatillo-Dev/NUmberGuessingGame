@@ -1,0 +1,405 @@
+* {
+    user-select: none;
+    box-sizing: border-box;
+}
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #2d2d2d;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+header {
+    width: 100%;
+    padding: 10px;
+}
+header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 70px;
+}
+.container {
+    max-width: 1440;
+    margin: 0 auto;
+    background-color: #333;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+input[type="number"] {
+    width: 80%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    background-color: #444;
+    color: #fff;
+    border-radius: 5px;
+    outline: none;
+}
+
+#guessButton {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#guessButton:hover {
+    background-color: #0056b3;
+}
+
+.result {
+    font-size: 18px;
+    margin-top: 10px;
+    line-height: 30px;
+}
+.balance {
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+#summa {
+    margin-right: 10px;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: none;
+    background-color: rgba(0, 0, 0, 0.842);
+}
+
+.modal-content {
+    background-color: #00000062;
+    margin: 11% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 350px;
+    height: 52%;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 10px 20px;
+    margin: 10px;
+    cursor: pointer;
+    font-size: 40px;
+    background-color: #ffffff2f;
+    border-radius: 50px;
+}
+
+.close:hover {
+    color: red;
+}
+#moneyInput {
+    border: #888 1px solid;
+}
+.active {
+    display: block;
+}
+.card-slot {
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.card-slot h3 {
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.card-slot input[type="text"],
+.card-slot input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin: 0px 200px 0 0;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.card-slot input[type="text"]:focus,
+.card-slot input[type="number"]:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+#addMoneyButton {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+#addMoneyButton:hover {
+    background-color: #0056b3;
+}
+.card-slot {
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #474747;
+}
+
+.card-slot h3 {
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.card-slot input[type="text"],
+.card-slot input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.card-slot input[type="text"]:focus,
+.card-slot input[type="number"]:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+#addMoneyButton {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+#addMoneyButton:hover {
+    background-color: #0056b3;
+}
+.features a {
+    color: #ccc;
+    text-decoration: none;
+    outline: none;
+    font-weight: 700;
+    transition: all 0.2s;
+}
+.features a:hover {
+    opacity: 0.8;
+}
+.features {
+    display: flex;
+    gap: 30px;
+}
+.burger {
+    display: none;
+    width: 23px;
+}
+
+@media screen and (max-width: 745px) {
+    .features {
+        display: none;
+    }
+    .burger {
+        display: block;
+    }
+
+    header .container {
+        padding: 10px 10px;
+    }
+    #switch2{
+        display: none;
+    }
+    .slider2{
+        display: none;
+    }
+    .darkmode2{
+        display: none;
+    }
+}
+/* Styles for the burger menu */
+.burger-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1;
+}
+
+.burger-menu {
+    position: fixed;
+    top: 0;
+    right: -300px;
+    width: 300px;
+    height: 100%;
+    background-color: #333;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: start;
+
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transition: right 0.3s ease-in-out;
+}
+.burger-menu:first-child {
+    display: flex;
+}
+.burger-menu div:nth-child(2) {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    margin-top: 30px;
+}
+.burger-menu div a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 23px;
+    margin-bottom: 20px;
+    text-align: right;
+}
+.burger-menu div a:hover {
+    opacity: 0.8;
+}
+
+#btn {
+    background: #efefef;
+    height: 30px;
+    width: 60px;
+    border-radius: 20px;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+    transition: background 0.5s;
+}
+#btn span {
+    display: block;
+    background: #999;
+    height: 26px;
+    width: 26px;
+    border-radius: 50%;
+    margin-left: -4px;
+    transition: background 0.5s, margin-left 0.5s;
+}
+/* ? kjfhsdkfhksjdhfksf */
+
+#btn.active {
+    background: green;
+}
+#btn.active span {
+    background: #fff;
+    margin-left: 25px;
+}
+.button-mode {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.toggle {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.toggle input {
+    display: none;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    border-radius: 34px;
+    transition: 0.4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    border-radius: 50%;
+    transition: 0.4s;
+}
+
+#switch:checked + .slider ,#switch2:checked + .slider {
+    background-color: #007bff;
+}
+
+#switch:checked + .slider:before ,#switch2:checked + .slider:before{
+    transform: translateX(26px);
+}
+#switch2{
+    position: absolute;
+    
+}
+#status {
+    margin-top: 20px;
+    font-size: 24px;
+}
+.content-box {
+    width: 300px;
+    height: 40vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 10%;
+    gap: 10px;
+}
+
+.toggle2{
+    position: absolute;
+    bottom: 20px;
+    right: 100px;
+}
+.darkmode2{
+    position: absolute;
+    bottom: 3px;
+    right: 25px;
+}
