@@ -238,14 +238,17 @@ input[type="number"] {
     header .container {
         padding: 10px 10px;
     }
-    #switch2{
+    #switch2 {
         display: none;
     }
-    .slider2{
+    .slider2 {
         display: none;
     }
-    .darkmode2{
+    .darkmode2 {
         display: none;
+    }
+    .alert {
+        width: 310px;
     }
 }
 /* Styles for the burger menu */
@@ -367,16 +370,17 @@ input[type="number"] {
     transition: 0.4s;
 }
 
-#switch:checked + .slider ,#switch2:checked + .slider {
+#switch:checked + .slider,
+#switch2:checked + .slider {
     background-color: #007bff;
 }
 
-#switch:checked + .slider:before ,#switch2:checked + .slider:before{
+#switch:checked + .slider:before,
+#switch2:checked + .slider:before {
     transform: translateX(26px);
 }
-#switch2{
+#switch2 {
     position: absolute;
-    
 }
 #status {
     margin-top: 20px;
@@ -393,13 +397,57 @@ input[type="number"] {
     gap: 10px;
 }
 
-.toggle2{
+.toggle2 {
     position: absolute;
     bottom: 20px;
     right: 100px;
 }
-.darkmode2{
+.darkmode2 {
     position: absolute;
     bottom: 3px;
     right: 25px;
+}
+.alert {
+    position: absolute;
+    width: 430px;
+    height: 200px;
+    background-color: #444;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    font-size: 21px;
+    text-align: left;
+    padding: 10px 20px;
+}
+
+.alert-window {
+    display: none;
+    position: absolute;
+    width: 100vw;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #0000008e;
+}
+.cancel-accept button {
+    border-radius: 5px;
+    padding: 8px 18px;
+    position: relative;
+    top: 525px;
+    left: 650px;
+    background-color: #2d2d2d;
+    color: #ccc;
+    font-size: 16px;
+    border: 0.14rem solid black;
+    transition: all 0.2s;
+    cursor: pointer;
+}
+.cancel-accept {
+    display: none;
+}
+.cancel-accept button:hover {
+    background-color: #333;
 }

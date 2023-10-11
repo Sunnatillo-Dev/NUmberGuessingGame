@@ -22,11 +22,19 @@ let cardNumber = document.querySelector("#cardNumber");
 let cardHolder = document.querySelector("#cardHolder");
 let expirationDate = document.querySelector("#expirationDate");
 let cvv = document.querySelector("#cvv");
-let darkmode2 = document.querySelector(".darkmode2")
-// let wins = 0;
-// let loses = 0;
+let darkmode2 = document.querySelector(".darkmode2");
+let wins = 0;
+let loses = 0;
+let accept = document.querySelector(".accept");
+let restartGame = document.querySelector(".restart-game");
+let restartGame2 = document.querySelector(".restart-game2");
+let alertoverley = document.querySelector(".alert-window");
+let alertContent = document.querySelector(".alert");
 let modes = true;
 let dark = document.querySelector(".darkmode");
+let showPoints = document.querySelector(".showpoint");
+let showPoints2 = document.querySelector(".showpoint2");
+let cancelAndAccept = document.querySelector(".cancel-accept");
 balanceElement.innerHTML = balance;
 
 guessButton.addEventListener("click", () => {
@@ -35,22 +43,26 @@ guessButton.addEventListener("click", () => {
     if (guessInput < 0 || guessInput > 9) {
         result.innerHTML = `0 dan kichkina va 9 dan katta son kiritish mumkin emas `;
     } else {
-        if (random == +guessInput) {
+        if (random == +guessInput && balance != 0) {
             result.innerHTML = `Siz ${guessInput} tanladingiz komputer esa ${random} <br /> SIZ YUTTINGIZ`;
-
+            wins++;
             balance += 10;
         } else {
             if (balance <= 0) {
                 balance = 0;
-                alert("balansingiz tugadi");
+                alertoverley.style.display = "block";
+                alertContent.innerHTML = "Hisobingizda pul tugadi";
             } else {
                 balance -= 1;
+                loses++;
                 result.innerHTML = `Siz ${guessInput} tanladingiz komputer esa ${random} <br /> SIZ YUTQAZDIZ`;
             }
         }
     }
     balanceElement.innerHTML = balance;
     localStorage.setItem("balance", balance);
+    localStorage.setItem("wins", wins);
+    localStorage.setItem("loses", loses);
 });
 
 addMoneyButton.addEventListener("click", () => {
@@ -66,7 +78,6 @@ addMoneyButton.addEventListener("click", () => {
         cvvInput != ""
     ) {
         if (moneyInput < 0) {
-            burger - menu;
             alert("Summani Tog'irlab Yozing");
         } else {
             if (moneyInput <= 100) {
@@ -188,8 +199,7 @@ switchInput2.addEventListener("change", () => {
         cardHolder.style.background = "#444";
         cvv.style.background = "#444";
         expirationDate.style.background = "#444";
-        darkmode2.innerHTML = "Dark"
-
+        darkmode2.innerHTML = "Dark";
     } else {
         // Light mode
         body.style.background = "#e8e8e8";
@@ -210,8 +220,56 @@ switchInput2.addEventListener("change", () => {
         cardHolder.style.background = "white";
         cvv.style.background = "white";
         expirationDate.style.background = "white";
-        darkmode2.innerHTML = "Light"
+        darkmode2.innerHTML = "Light";
     }
 });
 
-// Initialize the state of the toggle switch based on 'modes'
+// ! restart
+
+restartGame.addEventListener("click", () => {
+    alertoverley.style.display = "block";
+    accept.style.display = "block";
+    alertContent.innerHTML =
+        "Agar siz Accept tugmasini bossangiz balansingiz va shot laringiz restart boladi";
+});
+window.addEventListener("click", (e) => {
+    if (e.target == alertoverley) {
+        alertoverley.style.display = "none";
+        cancelAndAccept.style.display = "none";
+    }
+});
+
+accept.addEventListener("click", () => {
+    balanceElement.innerHTML = 0;
+    balance = 0;
+    wins = 0;
+    loses = 0;
+    if (balance <= 0) {
+        balance = 0;
+        localStorage.setItem("balance", balance);
+    }
+    localStorage.setItem("wins", wins);
+    localStorage.setItem("loses", loses);
+    alertoverley.style.display = "none";
+});
+restartGame.addEventListener("click", () => {
+    cancelAndAccept.style.display = "block";
+    alertContent.innerHTML =
+        "Agar siz Accept tugmasini bossangiz balansingiz va shot laringiz restart boladi";
+    accept.addEventListener("click", () => {
+        cancelAndAccept.style.display = "none";
+    });
+});
+showPoints.addEventListener("click", () => {
+    alertoverley.style.display = "block";
+    if (wins > loses) {
+        alertContent.innerHTML = `${wins} > ${loses}
+        Siz Oldindasiz`;
+    } else if (wins < loses) {
+        alertContent.innerHTML = `${wins} < ${loses}
+        Siz Orqadasiz`;
+    } else {
+        alertContent.innerHTML = `${wins} = ${loses}
+        Durrang`;
+    }
+});
